@@ -6,6 +6,7 @@ import java.util.Scanner;
 * Board of char[] of size 10 and assign empty space to each element
 * Taking input from user to make the position in the board
 * Taking random input for cpu player
+* Print board for the available place for next turn
 * */
 public class TicTacToeGame {
 
@@ -20,20 +21,25 @@ public class TicTacToeGame {
         };
         printBoard(gameBoard);
 
-        // Taking input for position in board
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the position for board between 1-9: ");
-        int playerPosition = sc.nextInt();
+        while (true){
+            // Taking input for position in board
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the position for board between 1-9: ");
+            int playerPosition = sc.nextInt();
 
-        System.out.println("Player position is: " +playerPosition);
+            System.out.println("Player position is: " +playerPosition);
 
-        placeXO(gameBoard, playerPosition, "player");
+            placeXO(gameBoard, playerPosition, "player");
 
-        // Taking random value for cpu Player position in board
-        Random rm = new Random();
-        int cpuPosition = rm.nextInt(9) + 1;
-        placeXO(gameBoard, cpuPosition, "cpu");
-        System.out.println("CPU position is : " +cpuPosition);
+            // Taking random value for cpu Player position in board
+            Random rm = new Random();
+            int cpuPosition = rm.nextInt(9) + 1;
+            placeXO(gameBoard, cpuPosition, "cpu");
+            System.out.println("CPU position is : " +cpuPosition);
+
+            printBoard(gameBoard);
+
+        }
 
     }
     // Method to print the board
